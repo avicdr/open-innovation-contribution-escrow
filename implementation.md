@@ -1,0 +1,1225 @@
+# Open Innovation Contribution Escrow (OICE)
+
+## Complete Technical Implementation Guide
+
+Version: 1.0
+
+---
+
+# PROJECT OVERVIEW
+
+OICE is an AI-powered innovation coordination protocol built on Ethereum.
+
+The platform enables:
+
+- Innovation creation
+- Contribution tracking
+- AI-assisted project planning
+- Contributor discovery
+- Innovation funding
+- Milestone escrow
+- Reward distribution
+- Innovation lineage visualization
+- Reputation building
+- One-click innovation simulation
+
+Core Architecture:
+
+```txt
+Ethereum
+    ↓
+Trust Layer
+
+Gemini
+    ↓
+Intelligence Layer
+
+OICE
+    ↓
+Innovation Coordination Layer
+```
+
+---
+
+# TECH STACK
+
+## Frontend
+
+- Next.js 15 App Router
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Framer Motion
+- React Flow
+- Recharts
+
+## Backend
+
+- Next.js Server Actions
+- API Routes
+
+## Database
+
+- PostgreSQL
+- Prisma
+
+## AI
+
+- Gemini 2.5 Flash
+- Gemini 2.5 Pro
+
+## Blockchain
+
+- Solidity
+- OpenZeppelin
+- Base Sepolia
+- Wagmi
+- Viem
+- RainbowKit
+
+## Storage
+
+- IPFS
+- Pinata
+
+---
+
+# SYSTEM ARCHITECTURE
+
+```txt
+Frontend
+    ↓
+API Layer
+    ↓
+Services Layer
+    ├ Gemini Service
+    ├ Blockchain Service
+    ├ Database Service
+    └ Simulation Service
+
+Database
+Ethereum
+IPFS
+```
+
+---
+
+# PROJECT STRUCTURE
+
+```txt
+src/
+
+app/
+components/
+features/
+services/
+hooks/
+lib/
+contracts/
+prisma/
+types/
+
+features/
+
+innovation/
+contribution/
+copilot/
+passport/
+dna-graph/
+funding/
+simulation/
+reputation/
+validation/
+```
+
+---
+
+# PHASE 1 — FOUNDATION
+
+## Setup
+
+Initialize:
+
+- Next.js
+- TypeScript
+- Tailwind
+- Prisma
+
+Install:
+
+```bash
+npm install framer-motion
+npm install reactflow
+npm install recharts
+npm install @prisma/client prisma
+npm install wagmi viem
+npm install @rainbow-me/rainbowkit
+npm install zod
+npm install react-hook-form
+npm install lucide-react
+```
+
+---
+
+# PHASE 2 — DESIGN SYSTEM
+
+## Theme
+
+Dark-first
+
+Colors:
+
+```css
+Primary: #00E5FF
+Secondary: #7B61FF
+Background: #0B1020
+Surface: #111827
+Text: #F8FAFC
+```
+
+---
+
+## Global Components
+
+Build:
+
+```txt
+Button
+Card
+Dialog
+Drawer
+Tabs
+Progress
+Gauge
+StatCard
+MetricCard
+Timeline
+```
+
+---
+
+# PHASE 3 — DATABASE
+
+## User
+
+```prisma
+model User
+```
+
+Fields:
+
+- id
+- walletAddress
+- username
+- avatar
+- reputationScore
+
+---
+
+## Innovation
+
+Fields:
+
+- id
+- title
+- summary
+- description
+- category
+- creatorId
+- ipfsHash
+
+---
+
+## Contribution
+
+Fields:
+
+- id
+- innovationId
+- contributorId
+- title
+- description
+- type
+- proofUrl
+- aiScore
+- impactScore
+
+---
+
+## Validation
+
+Fields:
+
+- id
+- contributionId
+- validatorId
+- rating
+
+---
+
+## Funding
+
+Fields:
+
+- id
+- innovationId
+- amount
+
+---
+
+## Milestone
+
+Fields:
+
+- id
+- innovationId
+- title
+- status
+
+---
+
+## Reward
+
+Fields:
+
+- id
+- innovationId
+- userId
+- amount
+
+---
+
+# PHASE 4 — WALLET AUTH
+
+Implement:
+
+RainbowKit
+
+Supported:
+
+- Base Sepolia
+
+Flow:
+
+```txt
+Connect Wallet
+↓
+Create User
+↓
+Access Dashboard
+```
+
+---
+
+# FEATURE 1 — INNOVATION CREATION
+
+## Purpose
+
+Create an innovation.
+
+---
+
+## UI
+
+Page:
+
+```txt
+/innovation/create
+```
+
+Fields:
+
+- Title
+- Summary
+- Description
+- Category
+- Tags
+- Website
+- GitHub
+
+---
+
+## Backend
+
+Store:
+
+Database
+
+Upload metadata:
+
+IPFS
+
+---
+
+## Ethereum
+
+Call:
+
+```solidity
+registerInnovation()
+```
+
+Store:
+
+- creator
+- timestamp
+- metadata hash
+
+---
+
+# FEATURE 2 — CONTRIBUTION SYSTEM
+
+## Purpose
+
+Track contributions.
+
+Types:
+
+- Engineering
+- Research
+- Design
+- Marketing
+- Community
+- Partnerships
+- Documentation
+- Testing
+
+---
+
+## Contribution Flow
+
+```txt
+Submit Contribution
+↓
+Store Proof
+↓
+AI Evaluation
+↓
+Community Validation
+↓
+Impact Score
+```
+
+---
+
+# FEATURE 3 — AI CONTRIBUTION AUDITOR
+
+## Gemini Prompt
+
+Evaluate:
+
+- originality
+- effort
+- complexity
+- usefulness
+- impact
+
+Return:
+
+```json
+{
+  "originality": 0,
+  "effort": 0,
+  "complexity": 0,
+  "impact": 0,
+  "reasoning": ""
+}
+```
+
+---
+
+## UI
+
+Radar Chart
+
+Score Card
+
+Reasoning Panel
+
+---
+
+# FEATURE 4 — AI INNOVATION COPILOT
+
+## Generate
+
+Required Team
+
+Budget
+
+Timeline
+
+Milestones
+
+Risks
+
+Opportunities
+
+---
+
+## UI
+
+Dashboard Layout
+
+Sections:
+
+```txt
+Team
+Budget
+Timeline
+Risks
+Opportunities
+```
+
+---
+
+# FEATURE 5 — MISSING CONTRIBUTOR FINDER
+
+Button:
+
+```txt
+Find Missing Contributors
+```
+
+Gemini analyzes:
+
+- current contributors
+- contribution types
+- milestones
+
+Returns:
+
+```txt
+Frontend Engineer
+Research Scientist
+Growth Lead
+```
+
+---
+
+# FEATURE 6 — READINESS SCORE
+
+## Inputs
+
+- Team Completeness
+- Funding
+- Contributions
+- Validation
+- Documentation
+
+---
+
+## Output
+
+```txt
+82 / 100
+```
+
+Display:
+
+Animated Gauge
+
+---
+
+# FEATURE 7 — INNOVATION TIME MACHINE
+
+## Timeline
+
+Past
+
+Present
+
+Future
+
+---
+
+## Past
+
+Generated from:
+
+- contributions
+- funding
+- milestones
+
+---
+
+## Future
+
+Generated by Gemini.
+
+---
+
+# FEATURE 8 — COMMUNITY VALIDATION
+
+Users rate:
+
+```txt
+1 - 10
+```
+
+Formula:
+
+```txt
+40% AI Score
+
+60% Community Score
+```
+
+---
+
+# FEATURE 9 — REPUTATION SYSTEM
+
+Metrics:
+
+```txt
+Contributor Score
+
+Validator Score
+
+Innovation Score
+
+Trust Score
+```
+
+Levels:
+
+```txt
+Innovator I
+
+Innovator II
+
+Innovator III
+
+Master Innovator
+```
+
+---
+
+# FEATURE 10 — INNOVATION DNA GRAPH
+
+## Flagship Feature
+
+Technology:
+
+React Flow
+
+---
+
+## Nodes
+
+```txt
+Innovation
+
+Contribution
+
+Funding
+
+Milestone
+```
+
+---
+
+## Edges
+
+```txt
+Created
+
+Contributed
+
+Funded
+
+Completed
+```
+
+---
+
+## Features
+
+Zoom
+
+Pan
+
+MiniMap
+
+Node Hover
+
+Expand
+
+Collapse
+
+Animations
+
+---
+
+# FEATURE 11 — FUNDING MARKETPLACE
+
+Page:
+
+```txt
+/explore
+```
+
+Filters:
+
+- Trending
+- Most Funded
+- Newest
+- Highest Rated
+
+---
+
+# FEATURE 12 — ESCROW CONTRACT
+
+## Contract
+
+InnovationEscrow.sol
+
+---
+
+## Functions
+
+```solidity
+registerInnovation()
+
+registerContribution()
+
+depositFunds()
+
+createMilestone()
+
+approveMilestone()
+
+releaseFunds()
+
+distributeRewards()
+```
+
+---
+
+## Events
+
+```solidity
+InnovationRegistered
+
+ContributionRegistered
+
+FundsDeposited
+
+MilestoneApproved
+
+RewardsDistributed
+```
+
+---
+
+# FEATURE 13 — MILESTONE ESCROW
+
+Workflow:
+
+```txt
+Sponsor Deposits
+↓
+Escrow Locked
+↓
+Milestone Approved
+↓
+Funds Released
+```
+
+---
+
+# FEATURE 14 — REWARD DISTRIBUTION
+
+Formula:
+
+```txt
+Contribution Score
+/
+Total Score
+=
+Reward Percentage
+```
+
+Example:
+
+```txt
+Alice 50%
+
+Bob 30%
+
+Carol 20%
+```
+
+---
+
+# FEATURE 15 — CONTRIBUTION IMPACT REPLAY
+
+Visual Timeline:
+
+```txt
+Contribution
+↓
+Validation
+↓
+Funding
+↓
+Reward
+```
+
+Animated.
+
+---
+
+# FEATURE 16 — INNOVATION PASSPORT
+
+## Flagship Feature
+
+Page:
+
+```txt
+/passport/[id]
+```
+
+---
+
+## Sections
+
+Overview
+
+Contributors
+
+Funding
+
+Milestones
+
+Rewards
+
+Validation
+
+Readiness
+
+Timeline
+
+DNA Graph
+
+AI Insights
+
+---
+
+## Design Goal
+
+Combination of:
+
+- GitHub Insights
+- Blockchain Explorer
+- Linear Dashboard
+
+---
+
+# FEATURE 17 — ONE CLICK INNOVATION SIMULATION
+
+## Most Important Feature
+
+Landing Hero Button:
+
+```txt
+Launch Demo Simulation
+```
+
+---
+
+# SIMULATION OBJECTIVE
+
+Demonstrate entire platform in 60–90 seconds.
+
+No user input required.
+
+Everything happens automatically.
+
+---
+
+# SIMULATION ARCHITECTURE
+
+Create:
+
+```txt
+/features/simulation
+
+SimulationEngine.tsx
+
+SimulationController.tsx
+
+SimulationStateMachine.ts
+
+SimulationTimeline.tsx
+
+SimulationOverlay.tsx
+
+SimulationProgress.tsx
+```
+
+---
+
+# SIMULATION STATE MACHINE
+
+```ts
+enum SimulationStep {
+  CREATE_INNOVATION,
+
+  COPILOT_ANALYSIS,
+
+  CONTRIBUTORS_JOIN,
+
+  CONTRIBUTIONS,
+
+  AI_EVALUATION,
+
+  VALIDATION,
+
+  FUNDING,
+
+  MILESTONE,
+
+  REWARD_DISTRIBUTION,
+
+  PASSPORT_GENERATION,
+
+  DNA_GRAPH_EXPANSION,
+
+  COMPLETE,
+}
+```
+
+---
+
+# STEP 1
+
+Create Innovation
+
+Display:
+
+```txt
+AI Flood Prediction Network
+```
+
+DNA Graph Node Appears
+
+Progress:
+
+10%
+
+---
+
+# STEP 2
+
+AI Copilot Analysis
+
+Display:
+
+- Team
+- Budget
+- Timeline
+- Risks
+
+Progress:
+
+20%
+
+---
+
+# STEP 3
+
+Contributors Join
+
+Display:
+
+```txt
+Alice
+
+Bob
+
+Carol
+```
+
+Graph Expands
+
+Progress:
+
+30%
+
+---
+
+# STEP 4
+
+Contributions Submitted
+
+Display:
+
+```txt
+Smart Contract
+
+Research Dataset
+
+Community Growth
+```
+
+Progress:
+
+40%
+
+---
+
+# STEP 5
+
+AI Evaluation
+
+Show:
+
+Animated Scores
+
+Impact Analysis
+
+Progress:
+
+50%
+
+---
+
+# STEP 6
+
+Community Validation
+
+Display:
+
+Validator Ratings
+
+Progress:
+
+60%
+
+---
+
+# STEP 7
+
+Funding
+
+Sponsor Deposits:
+
+```txt
+1 ETH
+```
+
+Escrow Locks
+
+Progress:
+
+70%
+
+---
+
+# STEP 8
+
+Milestone Approval
+
+Display:
+
+```txt
+Prototype Complete
+```
+
+Escrow Released
+
+Progress:
+
+80%
+
+---
+
+# STEP 9
+
+Reward Distribution
+
+Animate:
+
+```txt
+0.5 ETH
+
+0.3 ETH
+
+0.2 ETH
+```
+
+Progress:
+
+90%
+
+---
+
+# STEP 10
+
+Passport Generation
+
+Passport Opens
+
+Progress:
+
+95%
+
+---
+
+# STEP 11
+
+DNA Graph Expansion
+
+Graph Zoom Out
+
+Full Innovation Tree Visible
+
+Progress:
+
+100%
+
+---
+
+# SIMULATION CONTROLS
+
+Buttons:
+
+```txt
+Play
+
+Pause
+
+Restart
+
+Previous
+
+Next
+```
+
+Speed:
+
+```txt
+1x
+
+2x
+
+5x
+```
+
+---
+
+# FINAL SIMULATION SCREEN
+
+Display:
+
+```txt
+Innovation Successfully Coordinated
+```
+
+Statistics:
+
+```txt
+3 Contributors
+
+1 ETH Distributed
+
+4 Milestones
+
+1 Innovation Passport
+```
+
+Final Message:
+
+```txt
+Ethereum = Trust Layer
+
+Gemini = Intelligence Layer
+
+OICE = Innovation Coordination Layer
+```
+
+Confetti Animation
+
+---
+
+# FEATURE 18 — PRESENTER MODE
+
+Button:
+
+```txt
+Presenter Mode
+```
+
+Features:
+
+- Large Text
+- Spotlight Effects
+- Guided Navigation
+- Keyboard Shortcuts
+
+---
+
+# TESTING CHECKLIST
+
+Verify:
+
+- Wallet Auth
+- Innovation Creation
+- Contribution Submission
+- Gemini Integration
+- Escrow Contract
+- Reward Distribution
+- DNA Graph
+- Passport
+- Simulation
+- Presenter Mode
+
+---
+
+# DEPLOYMENT
+
+Frontend:
+
+Vercel
+
+Database:
+
+Neon PostgreSQL
+
+Storage:
+
+Pinata
+
+Blockchain:
+
+Base Sepolia
+
+---
+
+# FINAL DEMO FLOW
+
+1. Open Landing Page
+
+2. Launch Demo Simulation
+
+3. Show AI Copilot
+
+4. Show DNA Graph
+
+5. Show Escrow
+
+6. Show Rewards
+
+7. Open Passport
+
+8. Show Readiness Score
+
+9. Show Time Machine
+
+10. End With:
+
+Ethereum provides trust.
+
+AI provides intelligence.
+
+OICE coordinates innovation.
