@@ -7,6 +7,8 @@ import { Card } from "@/components/ui/card";
 import { listFundingForInnovation } from "@/services/funding/funding-repository";
 import { listInnovations } from "@/services/innovation/innovation-repository";
 
+export const dynamic = "force-dynamic";
+
 type ContributorProject = {
   readonly id: string;
   readonly title: string;

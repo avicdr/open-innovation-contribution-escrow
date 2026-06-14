@@ -10,3 +10,5 @@ tsconfig.tsbuildinfo
 artifacts/
 cache/
 typechain-types/
+.env.local
+.env.example
